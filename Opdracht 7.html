@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Opdracht 7</title>
+</head>
+<body>
+ <canvas id="canvas" width="800" height="600"></canvas>
+        <script src="./robot-arm.js"></script>
+        <script>
+  var canvas = document.getElementById("canvas");
+  var robotArm = new RobotArm(canvas);
+
+  robotArm.loadLevel("exercise 7");
+
+
+robotArm.speed=700
+for (var u = 1; u <=6; u++){
+	for (var i = 1; i<=6; i++) {
+	robotArm.moveRight();
+	robotArm.grab();
+	robotArm.moveLeft();
+	robotArm.drop();
+	}
+	robotArm.moveRight();
+	robotArm.moveRight();
+}
+
+
+  robotArm.run();
+</script>
+</body>
+</html>

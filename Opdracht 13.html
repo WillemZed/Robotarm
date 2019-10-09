@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Opdracht 13</title>
+</head>
+<body>
+<canvas id="canvas" width="800" height="600"></canvas>
+<script src="./robot-arm.js"></script>
+<script>
+  var canvas = document.getElementById("canvas");
+  var robotArm = new RobotArm(canvas);
+
+  robotArm.randomLevel( 1, 8);
+robotArm.speed=2000
+
+var p = 0
+	robotArm.grab();
+	var color = robotArm.scan()
+	while(color !=null) {
+		for (var i = 1; i<=(1+p); i++){
+			robotArm.moveRight();
+		} robotArm.drop();
+		for (var i = 1; i<=(1+p); i++) {
+			robotArm.moveLeft();
+		}
+	p++
+	robotArm.grab();
+	color = robotArm.scan();
+	}
+	
+  robotArm.run();
+</script>
+</body>
+</html>

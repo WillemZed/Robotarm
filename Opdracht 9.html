@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Opdracht 9</title>
+</head>
+<body>
+<canvas id="canvas" width="800" height="600"></canvas>
+<script src="./robot-arm.js"></script>
+
+<script>
+  var canvas = document.getElementById("canvas");
+  var robotArm = new RobotArm(canvas);
+
+  robotArm.loadLevel("exercise 9");
+	robotArm.speed=1000
+
+for(var s = 0; s<=3; s++){//stapels
+	for(var o = 0; o<=(3-s); o++){//repeats commands regel 18 tm 24 3 times
+		robotArm.grab();//grabs block
+			for(var i = 0; i<5; i++){//moves block 5 times right
+				robotArm.moveRight();
+			} robotArm.drop();//drops block
+				for(i = 0; i<4; i++){//moves arm to left
+					robotArm.moveLeft();
+				}
+		} for( i = 0; i<(3-s); i++){
+			robotArm.moveLeft();
+	}
+}
+
+
+
+
+
+
+
+  robotArm.run();
+</script>
+</body>
+</html>
